@@ -28,11 +28,7 @@ class Dog
       self.update
     else
        sql = <<-SQL
-             SELECT *
-             FROM dogs
-             WHERE name = ?
-             AND breed = ?
-             LIMIT 1
+             
         SQL
       DB[:conn].execute(sql, self.name, self.breed)
 
