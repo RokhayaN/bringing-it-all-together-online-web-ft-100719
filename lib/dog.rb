@@ -28,12 +28,12 @@ class Dog
       self.update
     else
        sql = <<-SQL
-          SELECT *
-          FROM dogs
-          WHERE name = ?
-          AND breed = ?
-          LIMIT 1
-        SQL 
+             SELECT *
+             FROM dogs
+             WHERE name = ?
+             AND breed = ?
+             LIMIT 1
+        SQL
       DB[:conn].execute(sql, self.name, self.breed)
 
       @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
